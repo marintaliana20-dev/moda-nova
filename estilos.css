@@ -1,0 +1,894 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   2. MENÚ DE NAVEGACIÓN Y LOGO
+   Organiza el logo y los enlaces principales
+   ========================================= */
+
+.navbar {
+    width: 100%;
+    min-height: 85px;
+    padding: 15px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    position: relative;
+    z-index: 10;
+}
+
+/* Diseño del logo */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+/* Círculo de las iniciales MN */
+
+.logo-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #d98c9b;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Nombre de la tienda */
+
+.logo-text {
+    color: #333333;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Punto decorativo del logo */
+
+.punto {
+    color: #d98c9b;
+}
+
+/* Enlaces del menú */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #d98c9b;
+}
+
+/* Oculta el menú móvil en computadores */
+
+#menu,
+.menu-icon {
+    display: none;
+}
+
+
+/* =========================================
+   3. BANNER PRINCIPAL DESLIZANTE
+   Muestra las fotografías de moda
+   ========================================= */
+
+.banner {
+    width: 100%;
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+    background-color: #eeeeee;
+}
+
+/* Contenedor de las imágenes */
+
+.banner-slider {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Fila de fotografías */
+
+.banner-track {
+    display: flex;
+    width: 500%;
+    height: 100%;
+    animation: deslizar 25s infinite;
+}
+
+/* Cada fotografía */
+
+.banner-track li {
+    width: 20%;
+    height: 100%;
+    list-style: none;
+}
+
+/* Ajuste de las imágenes */
+
+.banner-track img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Animación automática del banner */
+
+@keyframes deslizar {
+
+    0%, 16% {
+        margin-left: 0;
+    }
+
+    20%, 36% {
+        margin-left: -100%;
+    }
+
+    40%, 56% {
+        margin-left: -200%;
+    }
+
+    60%, 76% {
+        margin-left: -300%;
+    }
+
+    80%, 96% {
+        margin-left: -400%;
+    }
+
+    100% {
+        margin-left: 0;
+    }
+}
+
+/* Texto encima del banner */
+
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    max-width: 480px;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.banner-text h4 {
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.banner-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.banner-text p {
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
+   4. BOTONES GENERALES
+   Personaliza los botones de la página
+   ========================================= */
+
+.btn {
+    display: inline-block;
+    background-color: #d98c9b;
+    color: #ffffff;
+    padding: 13px 28px;
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    text-shadow: none;
+}
+
+.btn:hover {
+    background-color: #bd7182;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   5. SECCIÓN NOSOTROS
+   Presenta la información de MODA NOVA
+   ========================================= */
+
+.nosotros {
+    padding: 90px 10%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 55px;
+}
+
+/* Textos de bienvenida */
+
+.nosotros-texto h4 {
+    color: #d98c9b;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    font-size: 13px;
+}
+
+.nosotros-texto h2 {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    color: #333333;
+}
+
+.nosotros-texto p {
+    color: #666666;
+    margin-bottom: 15px;
+    text-align: justify;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   6. GALERÍA DESLIZANTE DE FOTOGRAFÍAS
+   Permite cambiar las imágenes una por una
+   ========================================= */
+
+/* Contenedor principal */
+
+.galeria {
+    width: 100%;
+    max-width: 550px;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Oculta los botones de selección */
+
+.galeria input {
+    display: none;
+}
+
+/* Ventana de la galería */
+
+.galeria-ventana {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+/* Fila que contiene las cuatro imágenes */
+
+.galeria-pista {
+    display: flex;
+    width: 400%;
+    transition: transform 0.5s ease;
+}
+
+/* Cada fotografía ocupa una cuarta parte */
+
+.galeria-imagen {
+    width: 25%;
+    position: relative;
+}
+
+/* Tamaño y presentación de las fotografías */
+
+.galeria-imagen img {
+    display: block;
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+}
+
+/* Movimiento hacia la primera fotografía */
+
+#foto1:checked ~ .galeria-ventana .galeria-pista {
+    transform: translateX(0);
+}
+
+/* Movimiento hacia la segunda fotografía */
+
+#foto2:checked ~ .galeria-ventana .galeria-pista {
+    transform: translateX(-25%);
+}
+
+/* Movimiento hacia la tercera fotografía */
+
+#foto3:checked ~ .galeria-ventana .galeria-pista {
+    transform: translateX(-50%);
+}
+
+/* Movimiento hacia la cuarta fotografía */
+
+#foto4:checked ~ .galeria-ventana .galeria-pista {
+    transform: translateX(-75%);
+}
+
+/* Ubicación de los botones */
+
+.galeria-botones {
+    position: absolute;
+    bottom: 18px;
+    left: 0;
+    width: 100%;
+    padding: 0 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Diseño de los botones anterior y siguiente */
+
+.galeria-botones label {
+    background-color: #ffffff;
+    color: #bd7182;
+    padding: 10px 15px;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.galeria-botones label:hover {
+    background-color: #d98c9b;
+    color: white;
+}
+
+/* Indicadores inferiores */
+
+.galeria-indicadores {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.galeria-indicadores label {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background-color: #e7c5cc;
+    cursor: pointer;
+}
+
+/* Color del indicador seleccionado */
+
+#foto1:checked ~ .galeria-indicadores label[for="foto1"],
+#foto2:checked ~ .galeria-indicadores label[for="foto2"],
+#foto3:checked ~ .galeria-indicadores label[for="foto3"],
+#foto4:checked ~ .galeria-indicadores label[for="foto4"] {
+    background-color: #d98c9b;
+}
+
+
+/* =========================================
+   7. SECCIÓN COLECCIÓN
+   Presenta las diferentes categorías de ropa
+   ========================================= */
+
+.coleccion {
+    padding: 80px 8%;
+    background-color: #faf7f7;
+    text-align: center;
+}
+
+/* Títulos de la colección */
+
+.titulo {
+    margin-bottom: 40px;
+}
+
+.titulo h4 {
+    color: #d98c9b;
+    letter-spacing: 3px;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.titulo h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.titulo p {
+    color: #777777;
+}
+
+/* Cuadrícula de productos */
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* Tarjetas de productos */
+
+.producto {
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.producto:hover {
+    transform: translateY(-7px);
+}
+
+/* Fotografías de productos */
+
+.producto img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.producto h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    margin: 15px 10px 5px;
+}
+
+.producto p {
+    color: #777777;
+    padding: 0 10px 20px;
+}
+
+
+/* =========================================
+   8. SECCIÓN OFERTAS
+   Destaca las promociones de temporada
+   ========================================= */
+
+.ofertas {
+    padding: 80px 10%;
+    background-color: #f9edef;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.ofertas-texto h4 {
+    color: #d98c9b;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.ofertas-texto h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.ofertas-texto p {
+    color: #666666;
+    line-height: 1.9;
+    margin-bottom: 25px;
+}
+
+/* Fotografía de ofertas */
+
+.ofertas > img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+/* =========================================
+   9. SECCIÓN CONTACTO
+   Organiza el formulario para los clientes
+   ========================================= */
+
+.contacto {
+    padding: 80px 10%;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+/* Encabezado de contacto */
+
+.contacto-titulo h4 {
+    color: #d98c9b;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.contacto-titulo h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.contacto-titulo p {
+    color: #777777;
+    max-width: 650px;
+    margin: 0 auto 30px;
+}
+
+/* Formulario */
+
+.formulario {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 10px;
+}
+
+/* Etiquetas */
+
+.formulario label {
+    font-weight: bold;
+    color: #444444;
+    margin-top: 8px;
+}
+
+/* Campos de texto */
+
+.formulario input,
+.formulario textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #dddddd;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+/* Efecto al seleccionar los campos */
+
+.formulario input:focus,
+.formulario textarea:focus {
+    outline: none;
+    border-color: #d98c9b;
+}
+
+/* Área del mensaje */
+
+.formulario textarea {
+    resize: vertical;
+}
+
+/* Botón de envío */
+
+.formulario button {
+    margin-top: 15px;
+}
+
+/* Enlace de Instagram */
+
+.instagram-contacto {
+    margin-top: 35px;
+}
+
+.instagram-contacto p {
+    color: #666666;
+    margin-bottom: 8px;
+}
+
+.instagram-link {
+    color: #d98c9b;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.instagram-link:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   10. SECCIÓN RSS
+   Presenta las noticias y novedades
+   ========================================= */
+
+.rss {
+    text-align: center;
+    padding: 70px 10%;
+    background-color: #f9edef;
+}
+
+.rss h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 35px;
+    color: #d98c9b;
+    margin-bottom: 20px;
+}
+
+.rss p {
+    color: #777777;
+    line-height: 1.8;
+    margin: 0 auto 15px;
+    max-width: 750px;
+}
+
+
+/* =========================================
+   11. PIE DE PÁGINA
+   Muestra la información final de la tienda
+   ========================================= */
+
+footer {
+    background-color: #333333;
+    color: #ffffff;
+    text-align: center;
+    padding: 40px 15px;
+}
+
+/* Logo del pie de página */
+
+.logo-footer {
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.logo-footer .logo-text {
+    color: #ffffff;
+}
+
+footer > p {
+    margin-bottom: 12px;
+}
+
+/* Instagram del pie de página */
+
+.instagram-footer {
+    color: #f2b9c3;
+    text-decoration: none;
+}
+
+.instagram-footer:hover {
+    text-decoration: underline;
+}
+
+/* Derechos reservados */
+
+.copyright {
+    margin-top: 25px;
+    font-size: 13px;
+    color: #cccccc;
+}
+
+
+/* =========================================
+   12. DISEÑO RESPONSIVE
+   Adapta la página a celulares y tabletas
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 15px 5%;
+    }
+
+    .nav-links {
+        gap: 13px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .nosotros {
+        padding: 65px 6%;
+        gap: 30px;
+    }
+
+    .ofertas {
+        padding: 65px 6%;
+    }
+
+}
+
+
+/* =========================================
+   13. DISEÑO PARA CELULARES
+   Organiza los elementos en pantallas pequeñas
+   ========================================= */
+
+@media (max-width: 650px) {
+
+    /* Encabezado */
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    /* Icono del menú móvil */
+
+    .menu-icon {
+        display: block;
+        font-size: 28px;
+        cursor: pointer;
+        color: #333333;
+    }
+
+    /* Menú oculto inicialmente */
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        padding: 20px 0;
+        gap: 18px;
+    }
+
+    /* Muestra el menú al presionar el icono */
+
+    #menu:checked ~ .nav-links {
+        display: flex;
+    }
+
+    /* Banner */
+
+    .banner {
+        height: 450px;
+    }
+
+    .banner-text {
+        left: 7%;
+        right: 7%;
+    }
+
+    .banner-text h1 {
+        font-size: 38px;
+    }
+
+    .banner-text p {
+        font-size: 15px;
+    }
+
+    /* Sección nosotros */
+
+    .nosotros {
+        grid-template-columns: 1fr;
+        padding: 55px 6%;
+    }
+
+    .nosotros-texto h2 {
+        font-size: 30px;
+    }
+
+    /* Galería */
+
+    .galeria {
+        max-width: 100%;
+    }
+
+    .galeria-imagen img {
+        height: 320px;
+    }
+
+    /* Colección */
+
+    .productos {
+        grid-template-columns: 1fr;
+    }
+
+    .producto img {
+        height: 350px;
+    }
+
+    .titulo h2 {
+        font-size: 30px;
+    }
+
+    /* Ofertas */
+
+    .ofertas {
+        grid-template-columns: 1fr;
+    }
+
+    .ofertas-texto h2 {
+        font-size: 30px;
+    }
+
+    .ofertas > img {
+        height: 300px;
+    }
+
+    /* Contacto */
+
+    .contacto-titulo h2 {
+        font-size: 30px;
+    }
+
+}
+
+/* REDES SOCIALES MODA NOVA */
+
+.redes-sociales {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.redes-iconos {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.red {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 5px;
+    border-radius: 0 !important;
+    color: #e8a1b0 !important;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.red svg {
+    width: 23px;
+    height: 23px;
+}
+
+.facebook svg,
+.tiktok svg {
+    fill: currentColor;
+    stroke: none;
+}
+
+.red:hover {
+    color: #bd7182 !important;
+    transform: translateY(-3px);
+}
